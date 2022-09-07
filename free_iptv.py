@@ -62,7 +62,7 @@ def who():
 class kandji_spam:
  
     def __init__(self):
-        self.driver = webdriver.Chrome('/Users/zacnicholson/Documents/GitHub/kandji spam/chromedriver') #, options=chrome_options
+        self.driver = webdriver.Chrome('/Users/zacnicholson/Documents/GitHub/kandji spam/chromedriver', options=chrome_options) #, options=chrome_options
 
     def free_trial(self):
             ### Order free IPTV
