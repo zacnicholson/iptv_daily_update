@@ -111,7 +111,7 @@ class kandji_spam:
             # iptv_link.click()
             iptv_link = self.driver.find_element_by_xpath('/html/body/center/font/b/center/center/center/center/center/center/section[3]/div/div/div[3]/div/div[1]/center/a')
             save_link = iptv_link.get_attribute('href')
-            with open('iptv_daily_update.m3u', "w") as o:
+            with open('iptv_daily_update', "w") as o:
                 o.write(save_link)
 
 
