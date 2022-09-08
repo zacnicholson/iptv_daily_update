@@ -63,10 +63,10 @@ def who():
     # ios = random.randint(10, 2000)
 
 class free_iptv_auto:
-    if os.path.isfile("iptv_daily/iptv_daily_update.m3u"):
-        os.remove("iptv_daily/iptv_daily_update.m3u")
-    else:
-        pass
+    # if os.path.isfile("iptv_daily/iptv_daily_update.m3u"):
+    #     os.remove("iptv_daily/iptv_daily_update.m3u")
+    # else:
+    #     pass
  
     def __init__(self):
         self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
@@ -122,7 +122,11 @@ class free_iptv_auto:
             save_link = iptv_link.get_attribute('href')
             self.driver.get(save_link)
             print(f'downloaded started. file name is {save_link}')
-            sleep(90)
+            sleep(120)
+            if os.path.isfile("iptv_daily/iptv_daily_update.m3u"):
+                os.remove("iptv_daily/iptv_daily_update.m3u")
+            else:
+                pass
             folder = r'iptv_daily/'
             count = 1
             # count increase by 1 in each iteration
