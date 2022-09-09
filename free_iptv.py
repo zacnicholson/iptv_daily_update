@@ -63,18 +63,13 @@ def who():
     # ios = random.randint(10, 2000)
 
 class free_iptv_auto:
-    # if os.path.isfile("iptv_daily/iptv_daily_update.m3u"):
-    #     os.remove("iptv_daily/iptv_daily_update.m3u")
-    # else:
-    #     pass
  
     def __init__(self):
         self.driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
 
-        # self.driver = webdriver.Chrome('chromedriver', options=chrome_options) #, options=chrome_options
 
     def free_trial(self):
-            ### Order free IPTV
+            ## Order free IPTV
             self.driver.get("https://best-usa-hosting.com/index.php?rp=/store/free-24hr-trials-hosting")
             sleep(5)
             order_now = self.driver.find_element_by_xpath('/html/body/center/font/b/center/center/center/center/center/center/section[3]/div/div/div/div/div/div[2]/div[3]/div/div/div/strong/footer/a')
@@ -123,31 +118,34 @@ class free_iptv_auto:
             self.driver.get(save_link)
             print(f'downloaded started. file name is {save_link}')
             sleep(120)
-            if os.path.isfile("iptv_daily/iptv_daily_update.m3u"):
+            if os.path.isfile("busa.one*"):
                 os.remove("iptv_daily/iptv_daily_update.m3u")
+                print('file removed')
+                folder = r'iptv_daily/'
+                count = 1
+                # count increase by 1 in each iteration
+                # iterate all files from a directory
+                for file_name in os.listdir(folder):
+                    # Construct old file name
+                    source = folder + file_name
+
+                    # Adding the count to the new file name and extension
+                    destination = folder + "iptv_daily_update.m3u"
+
+                    # Renaming the file
+                    os.rename(source, destination)
+                    count += 1
+
+                print('New Names are')
+                # verify the result
+                res = os.listdir(folder)
+                print(res)
+                print("finished")
+
             else:
+                print('no change')
                 pass
-            folder = r'iptv_daily/'
-            count = 1
-            # count increase by 1 in each iteration
-            # iterate all files from a directory
-            for file_name in os.listdir(folder):
-                # Construct old file name
-                source = folder + file_name
-
-                # Adding the count to the new file name and extension
-                destination = folder + "iptv_daily_update.m3u"
-
-                # Renaming the file
-                os.rename(source, destination)
-                count += 1
-
-            print('New Names are')
-            # verify the result
-            res = os.listdir(folder)
-            print(res)
-            print("finished")
-
+            
             
 
 
