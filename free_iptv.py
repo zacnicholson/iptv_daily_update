@@ -81,10 +81,6 @@ class free_iptv_auto:
             else:
                 print('no change')
                 pass
-            
-            
-
-
 
 
 
